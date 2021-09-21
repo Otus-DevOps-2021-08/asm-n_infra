@@ -1,10 +1,5 @@
-# asm-n_infra
-asm-n Infra repository
+#!/bin/bash -x
 
-### ДЗ№4: Практика управления ресурсами yandex cloud через YC.
-
-Для создания инстанса с запущенным приложением:
-```
 yc compute instance create \
   --name reddit-app \
   --hostname reddit-app \
@@ -13,8 +8,3 @@ yc compute instance create \
   --network-interface subnet-name=default-ru-central1-a,nat-ip-version=ipv4 \
   --metadata serial-port-enable=1 \
   --metadata-from-file user-data=./user-data.yml
-```
-
-#### Test:
-testapp_IP = 193.32.218.215
-testapp_port = 9292
