@@ -1,5 +1,5 @@
 {
-  "SA_KEY_FILE_PATH": "",
+  "SA_KEY_FILE_PATH": "dummy.json",
   "FOLDER_ID": "yc_folder_id",
   "SOURCE_IMAGE_FAMILY": "ubuntu-1604-lts",
   "IMAGE_NAME": "reddit-base",
