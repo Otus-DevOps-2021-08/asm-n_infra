@@ -1,8 +1,6 @@
 terraform {
   required_providers {
-    yandex = {
-      source = "yandex-cloud/yandex"
-    }
+    yandex = "~> 0.35"
   }
 }
 
