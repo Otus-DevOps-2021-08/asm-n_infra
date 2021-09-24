@@ -20,6 +20,9 @@ variable "external_app_port" {
 variable "internal_app_port" {
   default = 9292
 }
+variable "app_instances_count" {
+  default = 1
+}
 variable "public_key_path" {
   description = "Path to the public key used for ssh access"
 }

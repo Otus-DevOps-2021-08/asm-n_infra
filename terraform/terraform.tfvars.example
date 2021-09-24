@@ -3,6 +3,7 @@ folder_id                = "b1gj7hrcglpt9qgtifu5"
 zone                     = "ru-central1-a"
 image_id                 = "fd8usdak8em5gqt2vft0"
 subnet_id                = "e9bj578jivgdrhnqk1gs"
+app_instances_count      = 2
 public_key_path          = "~/.ssh/appuser.pub"
 private_key_path         = "~/.ssh/appuser"
 service_account_key_file = "../secrets/terraform-service-acc-key.json"

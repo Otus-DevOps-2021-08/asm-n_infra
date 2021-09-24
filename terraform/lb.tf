@@ -1,9 +1,12 @@
 resource "yandex_lb_target_group" "app_target_group" {
   name = "reddit-app-target-group"
 
-  target {
-    subnet_id = var.subnet_id
-    address   = yandex_compute_instance.app.network_interface[0].ip_address
+  dynamic "target" {
+    for_each = yandex_compute_instance.app
+    content {
+      subnet_id = var.subnet_id
+      address   = target.value.network_interface[0].ip_address
+    }
   }
 
   depends_on = [
@@ -30,6 +33,7 @@ resource "yandex_lb_network_load_balancer" "app_lb" {
       name = "healthcheck-${var.internal_app_port}"
       http_options {
         port = var.internal_app_port
+        path = "/"
       }
     }
   }
