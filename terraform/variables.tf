@@ -14,6 +14,12 @@ variable "image_id" {
 variable "subnet_id" {
   description = "Subnet"
 }
+variable "external_app_port" {
+  default = 8080
+}
+variable "internal_app_port" {
+  default = 9292
+}
 variable "public_key_path" {
   description = "Path to the public key used for ssh access"
 }
