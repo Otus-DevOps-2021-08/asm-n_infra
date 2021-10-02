@@ -1,13 +1,13 @@
 # asm-n_infra
 asm-n Infra repository
 
-### ДЗ№6: Декларативное описание в виде кода инфраструктуры YC, требуемой для запуска тестового приложения, при помощи Terraform.
+### ДЗ№7: Создание Terraform модулей для управления компонентами инфраструктуры.
 
-Создание var.app_instances_count ВМ, установка тестового приложения, создание группы балансировки, создание балансировщика.
+Настройка модулей для создания app и db инстансов, настройка prod и stage окружений. Настройка remote backend.
 
-Для запуска:
+Secret key для бэкенда находится в secrets/backend.tf. Поэтому:
 ```
-terraform apply
+terraform init -backend-config="../../secrets/backend.tf"
 ```
 
 Переменные:
@@ -15,12 +15,9 @@ terraform apply
 cloud_id                 = ""
 folder_id                = ""
 zone                     = "ru-central1-a"
-image_id                 = ""
+app_disk_image           = ""
+db_disk_image            = ""
 subnet_id                = ""
-external_app_port        = 8080
-internal_app_port        = 9292
-app_instances_count      = 1
 public_key_path          = ""
-private_key_path         = ""
 service_account_key_file = ""
 ```
