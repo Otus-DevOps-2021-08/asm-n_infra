@@ -7,7 +7,7 @@ asm-n Infra repository
 
 Secret key для бэкенда находится в secrets/backend.tf. Поэтому:
 ```
-terraform init -backend-config="../storage-backend.tf" -backend-config="../../secrets/backend.tf"
+terraform init -backend-config="../../secrets/backend.tf"
 ```
 
 Переменные:
