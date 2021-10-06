@@ -1,0 +1,35 @@
+{
+  "variables":
+  {
+    "SA_KEY_FILE_PATH": "../secrets/packer-service-acc-key.json",
+    "FOLDER_ID": "b1gj7hrcglpt9qgtifu5",
+    "SOURCE_IMAGE_FAMILY": "ubuntu-1604-lts",
+    "IMAGE_NAME": "reddit-app-base",
+    "IMAGE_FAMILY": "reddit-app-base",
+    "IMAGE_SIZE_GB": "5"
+  },
+
+  "builders": [
+    {
+      "type": "yandex",
+      "service_account_key_file": "{{user `SA_KEY_FILE_PATH`}}",
+      "folder_id": "{{user `FOLDER_ID`}}",
+      "source_image_family": "{{user `SOURCE_IMAGE_FAMILY`}}",
+      "image_name": "{{user `IMAGE_NAME`}}-{{timestamp}}",
+      "image_family": "{{user `IMAGE_FAMILY`}}",
+      "ssh_username": "ubuntu",
+      "platform_id": "standard-v1",
+      "disk_size_gb": "{{user `IMAGE_SIZE_GB`}}",
+      "use_ipv4_nat": "true"
+    }
+  ],
+
+  "provisioners": [
+    {
+      "type": "shell",
+      "script": "scripts/install_ruby.sh",
+      "execute_command": "sudo {{.Path}}",
+      "pause_before": "1s"
+    }
+  ]
+}
