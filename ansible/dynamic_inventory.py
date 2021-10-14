@@ -14,7 +14,9 @@ def ReadTerraformState(terraformDir: str) -> dict:
   terraformState = dict()
   try:
     os.chdir(terraformDir)
-    terraformStateJson = subprocess.run(["terraform", "show", "-json"], stdout=subprocess.PIPE).stdout
+    terraformStateJson = subprocess.run(["terraform", "show", "-json"],
+                                        stdout=subprocess.PIPE,
+                                        stderr=subprocess.PIPE).stdout
     terraformState = json.loads(terraformStateJson)
   except:
     pass
