@@ -6,18 +6,30 @@ import subprocess
 
 
 TERRAFORM_STATE_DIR = "../terraform/stage/"
+DEFAULT_INVENTORY_FILEPATH = "./dynamic_inventory.json"
 
 
 def ReadTerraformState(terraformDir: str) -> dict:
   oldCwd = os.getcwd()
-  os.chdir(terraformDir)
-  terraformStateJson = subprocess.run(["terraform", "show", "-json"], stdout=subprocess.PIPE).stdout
-  os.chdir(oldCwd)
-  return json.loads(terraformStateJson)
+  terraformState = dict()
+  try:
+    os.chdir(terraformDir)
+    terraformStateJson = subprocess.run(["terraform", "show", "-json"], stdout=subprocess.PIPE).stdout
+    terraformState = json.loads(terraformStateJson)
+  except:
+    pass
+  finally:
+    os.chdir(oldCwd)
+  return terraformState
 
 
 def IsEmptyTerraformState(terraformState: dict) -> bool:
   return "values" not in terraformState
+
+
+def LoadDefaultInventory() -> dict:
+  with open(DEFAULT_INVENTORY_FILEPATH, "r") as inv_file:
+      return json.load(inv_file)
 
 
 def CreateInventory() -> dict:
@@ -52,7 +64,7 @@ def main():
   inventory = CreateInventory()
 
   if IsEmptyTerraformState(terraformState):
-    print("Terraform state is empty.")
+    print(json.dumps(LoadDefaultInventory()))
     return
 
   for childModule in terraformState["values"]["root_module"]["child_modules"]:
