@@ -1,0 +1,1 @@
+{"_meta": {"hostvars": {"reddit-app": {"ansible_host": "84.252.129.13"}, "reddit-db": {"ansible_host": "178.154.222.107"}}}, "app": {"hosts": ["reddit-app"], "vars": {}}, "db": {"hosts": ["reddit-db"], "vars": {}}}
