@@ -2,8 +2,11 @@ secrets/
 variables.json
 
 .vscode/
+
 *.tfstate
 *.tfstate.*.backup
 *.tfstate.backup
 *.tfvars
 .terraform/
+
+*.retry

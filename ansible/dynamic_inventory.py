@@ -84,6 +84,10 @@ def main():
 
       AddHostToInventory(hostInfo, inventory)
 
+  inventory["all"] = dict()
+  inventory["all"]["vars"] = dict()
+  inventory["all"]["vars"]["db_internal_ip"] = terraformState["values"]["outputs"]["internal_ip_address_db"]["value"]
+
   print(json.dumps(inventory))
 
 

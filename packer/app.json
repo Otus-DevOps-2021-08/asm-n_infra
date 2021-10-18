@@ -1,7 +1,7 @@
 {
   "variables":
   {
-    "SA_KEY_FILE_PATH": "../secrets/packer-service-acc-key.json",
+    "SA_KEY_FILE_PATH": "secrets/packer-service-acc-key.json",
     "FOLDER_ID": "b1gj7hrcglpt9qgtifu5",
     "SOURCE_IMAGE_FAMILY": "ubuntu-1604-lts",
     "IMAGE_NAME": "reddit-app-base",
@@ -26,10 +26,8 @@
 
   "provisioners": [
     {
-      "type": "shell",
-      "script": "scripts/install_ruby.sh",
-      "execute_command": "sudo {{.Path}}",
-      "pause_before": "1s"
+      "type": "ansible",
+      "playbook_file": "ansible/packer_app.yml"
     }
   ]
 }
