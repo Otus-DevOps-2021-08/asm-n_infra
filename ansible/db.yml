@@ -3,7 +3,7 @@
 - name: Configure MongoDB
   hosts: db
   vars:
-    mongo_bind_ip: 0.0.0.0
+    mongo_bind_ip: "{{ db_internal_ip }}"
   become: true
 
   tasks:

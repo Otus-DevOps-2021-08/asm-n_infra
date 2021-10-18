@@ -3,7 +3,7 @@
 - name: Configure app
   hosts: app
   vars:
-    db_host: 192.168.10.32
+    db_host: "{{ db_internal_ip }}"
   become: true
 
   tasks:
