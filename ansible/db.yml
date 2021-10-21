@@ -6,14 +6,5 @@
     mongo_bind_ip: "{{ db_internal_ip }}"
   become: true
 
-  tasks:
-  - name: Change mongo config file
-    template:
-      src: templates/mongod.conf.j2
-      dest: /etc/mongod.conf
-      mode: 0644
-    notify: restart mongod
-
-  handlers:
-  - name: restart mongod
-    service: name=mongod state=restarted
+  roles:
+  - db
