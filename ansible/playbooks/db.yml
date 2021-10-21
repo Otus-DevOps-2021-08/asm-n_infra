@@ -2,8 +2,6 @@
 
 - name: Configure MongoDB
   hosts: db
-  vars:
-    mongo_bind_ip: "{{ db_internal_ip }}"
   become: true
 
   roles:
