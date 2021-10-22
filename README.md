@@ -2,7 +2,10 @@
 
 asm-n Infra repository
 
-## ДЗ№9: Управление настройками хостов и деплой приложения при помощи Ansible
+![Validate](https://github.com/Otus-DevOps-2021-08/asm-n_infra/actions/workflows/validate.yml/badge.svg)
+![Tests](https://github.com/Otus-DevOps-2021-08/asm-n_infra/actions/workflows/run-tests.yml/badge.svg)
 
-Созданы плейбуки для деплоя приложения. Созданы плейбуки для подготовки образов в packer.
-Добавлена группа `all` в dynamic_inventory.py
+
+## ДЗ№10: Написание Ansible ролей для управления конфигурацией сервисов и настройками хостов.
+
+Добавлены роли app и db, добавлены окружения stage & prod, добавлена роль jdauphant.nginx, добавлен плейбук users.yml, добавлен workflow validate all.
