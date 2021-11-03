@@ -5,7 +5,8 @@ asm-n Infra repository
 ![Validate](https://github.com/Otus-DevOps-2021-08/asm-n_infra/actions/workflows/validate.yml/badge.svg)
 ![Tests](https://github.com/Otus-DevOps-2021-08/asm-n_infra/actions/workflows/run-tests.yml/badge.svg)
 
+## ДЗ№11: ДЗ: Доработка имеющихся ролей локально с использование Vagrant
 
-## ДЗ№10: Написание Ansible ролей для управления конфигурацией сервисов и настройками хостов.
-
-Добавлены роли app и db, добавлены окружения stage & prod, добавлена роль jdauphant.nginx, добавлен плейбук users.yml, добавлен workflow validate all.
+- Создан Vagrantfile для запуска и провижининга истансов на локальной машине.
+- Доработаны роли db и app.
+- Роль db протестирована с помощью Molecule.
