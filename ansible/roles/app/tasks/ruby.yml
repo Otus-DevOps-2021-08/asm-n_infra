@@ -7,5 +7,5 @@
     - "ruby-bundler"
     - "build-essential"
     update_cache: yes
-    state: latest
+    state: present
   tags: ruby
